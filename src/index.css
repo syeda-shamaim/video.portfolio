@@ -1,0 +1,280 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #9E5555;
+  --color-brand-dark: #7A4040;
+  --color-brand-light: #C99595;
+  --color-maroon-50: #F5EBEB;
+  --color-maroon-100: #E8D4D4;
+  --color-maroon-200: #DFC0C0;
+  --color-maroon-300: #C99595;
+  --color-maroon-400: #B07070;
+  --color-maroon-500: #9E5555;
+  --color-maroon-600: #7A4040;
+  --color-maroon-700: #5C3333;
+  --color-maroon-800: #3D2424;
+  --color-maroon-900: #2A1818;
+  --color-surface: #3D2424;
+  --color-surface-elevated: #2A1818;
+  --font-display: "Poppins", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s ease-in-out infinite;
+  --animate-glow: glow 3s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  @keyframes glow {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(158, 85, 85, 0.35);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #3D2424;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9E5555;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B07070;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #fff 0%, #C99595 50%, #9E5555 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.9);
+  color: transparent;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-black font-semibold text-sm md:text-base shadow-lg shadow-white/10 hover:bg-gray-100 hover:scale-105 hover:shadow-xl transition-all duration-300;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/25 text-white font-semibold text-sm md:text-base backdrop-blur-md hover:bg-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300;
+}
+
+.section-eyebrow {
+  @apply inline-flex items-center gap-2 rounded-full border px-5 py-1.5 text-xs md:text-sm font-bold tracking-wide uppercase;
+}
+
+.tag-pill {
+  @apply px-3.5 py-1.5 rounded-full text-xs font-bold backdrop-blur-md border transition-all duration-300 hover:scale-105;
+}
+
+.card-lift {
+  @apply transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl;
+}
+
+[data-aos="drop-bounce"] {
+  opacity: 0;
+}
+
+[data-aos="drop-bounce"].aos-animate {
+  animation: dropBounce 1.2s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;
+}
+
+@keyframes dropBounce {
+  0% { transform: translateY(-300px); opacity: 0; }
+  50% { transform: translateY(0); opacity: 1; }
+  65% { transform: translateY(-40px); opacity: 1; }
+  80% { transform: translateY(0); opacity: 1; }
+  90% { transform: translateY(-15px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.input-underline {
+  @apply w-full bg-transparent border-b border-white/30 pb-3 text-base md:text-lg text-white placeholder-white/40 font-medium rounded-none outline-none transition-all duration-300 focus:border-white focus:placeholder-white/25 focus:shadow-[0_4px_16px_-6px_rgba(255,255,255,0.35)];
+}
+
+.contact-card {
+  @apply relative;
+}
+
+.contact-pill {
+  @apply inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-black/25 border border-white/20 text-sm font-semibold text-white backdrop-blur-sm hover:bg-black/40 hover:border-white/35 hover:scale-105 hover:shadow-lg transition-all duration-300;
+}
+
+.contact-info-card {
+  @apply rounded-2xl bg-black/20 border border-white/15 backdrop-blur-md px-5 py-4 flex flex-col gap-1.5 hover:bg-black/30 hover:border-white/25 transition-all duration-300;
+}
+
+.contact-form-panel {
+  @apply rounded-2xl bg-black/20 border border-white/15 backdrop-blur-md p-6 md:p-8;
+}
+
+.contact-field {
+  @apply flex flex-col gap-2;
+}
+
+.contact-field label {
+  @apply text-[10px] font-bold uppercase tracking-[0.18em] text-white/55;
+}
+
+.contact-send-btn {
+  @apply inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-full bg-white text-[#7A4040] font-bold text-sm md:text-base shadow-xl shadow-black/20 hover:bg-[#F5EBEB] hover:scale-105 hover:shadow-2xl active:scale-95 transition-all duration-300 whitespace-nowrap shrink-0;
+}
+
+.skill-top-card {
+  @apply relative rounded-[1.75rem] bg-[#FFFAFA] p-6 md:p-7 shadow-[0_16px_40px_rgba(92,51,51,0.12)] border border-[#E8D4D4] overflow-hidden transition-all duration-500;
+  background: linear-gradient(#FFFAFA, #FFFAFA) padding-box,
+    linear-gradient(145deg, rgba(158, 85, 85, 0.35), rgba(201, 149, 149, 0.15), rgba(122, 64, 64, 0.25)) border-box;
+  border: 2px solid transparent;
+}
+
+.skill-top-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(158, 85, 85, 0.06) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.skill-bar-fill {
+  background: linear-gradient(90deg, #9E5555, #C99595);
+  box-shadow: 0 0 12px rgba(158, 85, 85, 0.35);
+}
+
+/* Experience timeline */
+.exp-section-header {
+  @apply flex flex-wrap items-end justify-between gap-4;
+}
+
+.exp-count-badge {
+  @apply text-[10px] font-bold uppercase tracking-widest text-[#7A4040] bg-[#FFFAFA]/80 border border-[#9E5555]/20 px-4 py-2 rounded-full;
+}
+
+.exp-timeline {
+  @apply flex flex-col;
+}
+
+.exp-timeline-item {
+  @apply flex gap-4 md:gap-6 pb-2;
+}
+
+.exp-timeline-rail {
+  @apply hidden sm:flex flex-col items-center shrink-0 w-10 pt-1;
+}
+
+.exp-timeline-node {
+  @apply flex items-center justify-center w-9 h-9 rounded-full text-[10px] font-black text-[#7A4040] bg-[#FFFAFA] border-2 border-[#C99595]/50 shadow-sm z-10;
+}
+
+.exp-timeline-node--active {
+  @apply bg-[#9E5555] text-white border-[#7A4040] shadow-md shadow-[#9E5555]/30;
+}
+
+.exp-timeline-line {
+  @apply w-0.5 flex-1 min-h-[2rem] mt-2 rounded-full;
+  background: linear-gradient(to bottom, #9E5555, rgba(158, 85, 85, 0.12));
+}
+
+.exp-card {
+  @apply rounded-2xl p-5 md:p-6 mb-4 transition-all duration-300;
+  background: linear-gradient(#FFFAFA, #FFFAFA) padding-box,
+    linear-gradient(135deg, rgba(158, 85, 85, 0.2), rgba(201, 149, 149, 0.08)) border-box;
+  border: 1.5px solid transparent;
+  box-shadow: 0 10px 32px rgba(92, 51, 51, 0.08);
+}
+
+.exp-timeline-item:hover .exp-card {
+  @apply -translate-y-0.5;
+  box-shadow: 0 16px 44px rgba(92, 51, 51, 0.14);
+}
+
+.exp-card-header {
+  @apply flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3;
+}
+
+.exp-company-badge {
+  @apply w-11 h-11 shrink-0 rounded-xl bg-[#9E5555]/10 border border-[#9E5555]/20 flex items-center justify-center text-xs font-black text-[#7A4040];
+}
+
+.exp-current-badge {
+  @apply text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#9E5555]/15 text-[#7A4040] border border-[#9E5555]/25;
+}
+
+.exp-period-badge {
+  @apply text-[10px] font-bold text-[#5C3333]/85 uppercase tracking-wider bg-[#E8D4D4]/80 border border-[#7A4040]/10 px-3 py-1.5 rounded-full whitespace-nowrap;
+}
+
+.exp-task-list {
+  @apply space-y-2.5 border-t border-[#7A4040]/10 pt-4;
+}
+
+.exp-task-item {
+  @apply flex items-start gap-3 text-sm text-[#5C3333]/95 leading-relaxed;
+}
+
+.exp-task-check {
+  @apply mt-0.5 shrink-0 w-5 h-5 rounded-full bg-[#9E5555]/12 border border-[#9E5555]/20 flex items-center justify-center text-[#7A4040];
+}
+
+@media (max-width: 639px) {
+  .exp-card {
+    border-left: 3px solid #9E5555;
+    border-radius: 0 1rem 1rem 0;
+  }
+}
+
